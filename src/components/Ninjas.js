@@ -3,14 +3,18 @@ import React, { Component } from "react";
 class Ninjas extends Component {
   render() {
     //destructoring of props
-    const { name, age, Belt } = this.props;
-    return (
-      <div className="ninja">
-        <div>name:{this.props.name}</div>
-        <div>Age:{this.props.Age}</div>
-        <div>Belt:{this.props.Belt}</div>
-      </div>
-    );
+    const { ninjas } = this.props;
+    //creating a new array to render in the dom
+    const ninjaList = ninjas.map((ninja) => {
+      return (
+        <div className="ninja" key={ninja.id}>
+          <div>name:{ninja.name}</div>
+          <div>Age:{ninja.age}</div>
+          <div>Belt:{ninja.belt}</div>
+        </div>
+      );
+    });
+    return <div className="ninja-list">{ninjaList}</div>;
   }
 }
 
