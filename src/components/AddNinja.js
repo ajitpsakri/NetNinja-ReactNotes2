@@ -6,34 +6,29 @@ class AddNinja extends Component {
     age: null,
     belt: null,
   };
-  handleName = (e) => {
+
+  handleChange = (e) => {
     this.setState({
-      name: e.target.value,
-    });
-  };
-  handleAge = (e) => {
-    this.setState({
-      age: parseInt(e.target.value),
+      [e.target.id]: e.target.value,
     });
   };
 
-  handleBelt = (e) => {
-    this.setState({
-      belt: e.target.value,
-    });
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
   };
-
   render() {
     return (
       <div>
-        {/* This is old method*/}
-        <form>
+        {/* This is new method*/}
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" onChange={this.handleName} />
+          <input type="text" id="name" onChange={this.handleChange} />
           <label htmlFor="age">Age:</label>
-          <input type="text" id="age" onChange={this.handleAge} />
+          <input type="text" id="age" onChange={this.handleChange} />
           <label htmlFor="belt">Belt:</label>
-          <input type="text" id="belt" onChange={this.handleBelt} />
+          <input type="text" id="belt" onChange={this.handleChange} />
+          <button>Submit</button>
         </form>
       </div>
     );
