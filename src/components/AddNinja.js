@@ -6,21 +6,18 @@ class AddNinja extends Component {
     age: null,
     belt: null,
   };
-
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
     });
   };
-
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.addNinja(this.state);
   };
   render() {
     return (
       <div>
-        {/* This is new method*/}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name:</label>
           <input type="text" id="name" onChange={this.handleChange} />

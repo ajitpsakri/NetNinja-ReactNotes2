@@ -1,5 +1,5 @@
 import React from "react";
-import AddNinja from "./AddNinja";
+
 const Ninjas = ({ ninjas }) => {
   const ninjaList = ninjas.map((ninja) => {
     return (
@@ -10,12 +10,7 @@ const Ninjas = ({ ninjas }) => {
       </div>
     );
   });
-  return (
-    <div className="ninja-list">
-      {ninjaList}
-      <AddNinja />
-    </div>
-  );
+  return <div className="ninja-list">{ninjaList}</div>;
 };
 
 export default Ninjas;
